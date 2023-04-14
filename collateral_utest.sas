@@ -108,7 +108,7 @@
 
  %macro report_builder(start=1,end=7);
 
-        %do i=1 %to &end;
+        %do i=&start %to &end;
            %if &i^=4 %then %do;
              &filename(in=f&i where=(&&assertion&i))
            %end;
@@ -119,7 +119,7 @@
 
  %macro conditional(start=1,end=7);
 
-        %do i=1 %to &end;
+        %do i=&start %to &end;
            %if &i^=4 %then %do;
               if f&i then part="file&i";
            %end;
